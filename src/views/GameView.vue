@@ -1,18 +1,18 @@
 <template>
-  <div class="game">
-    <h1>This will be the game one day</h1>
+  <div class="game-view">
+    <h1>one day this will be minesweeper</h1>
+    <h2>choose difficulty</h2>
+    <difficulty-selector></difficulty-selector>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script lang="ts">
+import { defineComponent } from 'vue';
+import DifficultySelector from '@/components/DifficultySelector.vue';
 
-<script setup lang="ts">
+export default defineComponent({
+  components: {
+    DifficultySelector
+  }
+});
 </script>
