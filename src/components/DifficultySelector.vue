@@ -18,14 +18,11 @@ export default defineComponent({
       { value: 'hard', label: 'hard' }
     ]);
 
-    // Diese Funktion ruft die API an und loggt die Antwort oder Fehler.
     const fetchAndSelectDifficulty = (value: string) => {
       console.log("chosen difficulty:", value);
-      // Führe die API-Anfrage aus
       api.getRoot()
         .then(response => {
           console.log('API-Antwort erhalten:', response.data);
-          // Hier könntest du z.B. auf die Antwort reagieren und den Status im Store aktualisieren
         })
         .catch(error => {
           console.error('Fehler beim API-Aufruf:', error);
