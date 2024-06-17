@@ -13,6 +13,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/game">Game</RouterLink>
+        <RouterLink to="/score">M4: Score in DB eintragen</RouterLink>
       </nav>
     </div>
   </header>
