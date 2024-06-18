@@ -4,7 +4,7 @@ import api from '@/api/api';
 
 interface Score {
   id: number;
-  nickName: string;
+  nickname: string;
   timeInSeconds: number;
   difficulty: string;
 }
@@ -75,7 +75,7 @@ onMounted(fetchScores);
       <tbody>
       <tr v-for="(score, index) in scores" :key="score.id">
         <td>{{ index + 1 }}</td>
-        <td>{{ score.nickName }}</td>
+        <td>{{ score.nickname }}</td>
         <td>{{ score.timeInSeconds }}</td>
         <td>{{ score.difficulty }}</td>
       </tr>
