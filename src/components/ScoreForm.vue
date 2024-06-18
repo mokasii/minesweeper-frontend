@@ -2,14 +2,19 @@
 import { ref, onMounted } from 'vue';
 import api from '@/api/api';
 
-// Referenzen für Formulareingaben und Fehlermeldungen
+interface Score {
+  id: number;
+  nickName: string;
+  timeInSeconds: number;
+  difficulty: string;
+}
+
 const nickName = ref('');
 const timeInSeconds = ref(0);
 const difficulty = ref('easy');
 const errorMessage = ref('');
-const scores = ref([]);
+const scores = ref<Score[]>([]);
 
-// Funktion zum Abrufen der Highscores vom Server
 const fetchScores = async () => {
   try {
     const response = await api.getScores();
@@ -20,7 +25,6 @@ const fetchScores = async () => {
   }
 };
 
-// Funktion zum Einreichen eines neuen Scores
 const submitScore = async () => {
   try {
     await api.postScore({
@@ -28,20 +32,17 @@ const submitScore = async () => {
       timeInSeconds: timeInSeconds.value,
       difficulty: difficulty.value
     });
-    // Zurücksetzen der Formularwerte
     nickName.value = '';
     timeInSeconds.value = 0;
     difficulty.value = 'easy';
-    // Highscores neu laden, um die Liste zu aktualisieren
     await fetchScores();
-    errorMessage.value = '';  // Löscht die Fehlermeldung, wenn das Einreichen erfolgreich war
+    errorMessage.value = '';
   } catch (error) {
     console.error('Error submitting score:', error);
     errorMessage.value = 'Failed to submit score.';
   }
 };
 
-// Beim Mounten der Komponente Highscores laden
 onMounted(fetchScores);
 </script>
 
