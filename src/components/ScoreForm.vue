@@ -9,7 +9,7 @@ interface Score {
   difficulty: string;
 }
 
-const nickName = ref('');
+const nickname = ref('');
 const timeInSeconds = ref(0);
 const difficulty = ref('easy');
 const errorMessage = ref('');
@@ -28,11 +28,11 @@ const fetchScores = async () => {
 const submitScore = async () => {
   try {
     await api.postScore({
-      nickName: nickName.value,
+      nickname: nickname.value,
       timeInSeconds: timeInSeconds.value,
       difficulty: difficulty.value
     });
-    nickName.value = '';
+    nickname.value = '';
     timeInSeconds.value = 0;
     difficulty.value = 'easy';
     await fetchScores();
@@ -50,7 +50,7 @@ onMounted(fetchScores);
   <div>
     <h2>Submit Your Score:</h2>
     <form @submit.prevent="submitScore">
-      <input v-model="nickName" placeholder="Nickname" />
+      <input v-model="nickname" placeholder="Nickname" />
       <input type="number" v-model="timeInSeconds" placeholder="Time in seconds" />
       <select v-model="difficulty">
         <option value="easy">Easy</option>

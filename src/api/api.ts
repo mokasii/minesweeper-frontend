@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //interfaces gewähren Typsicherheit
 interface ScoreData {
-  nickName: string;
+  nickname: string;
   timeInSeconds: number;
   difficulty: string;
 }
