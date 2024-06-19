@@ -95,6 +95,7 @@ th, td {
   text-align: left;
 }
 thead {
-  background-color: #f4f4f4;
+  background-color: #00BD7E;
+  color: black;
 }
 </style>
