@@ -5,15 +5,15 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Minesweeper logo" class="logo" src="@/assets/sweeperLogo.png" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/game">Game</RouterLink>
-        <RouterLink to="/score">M4: Score in DB eintragen</RouterLink>
+        <RouterLink to="/game">Start Game</RouterLink>
+        <RouterLink to="/score">Highscores</RouterLink>
       </nav>
     </div>
   </header>
