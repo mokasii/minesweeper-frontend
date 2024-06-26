@@ -12,7 +12,9 @@ onBeforeMount(() => {
 });
 
 onUnmounted(() => {
-  clearInterval(timerId);
+  if (timerId){
+    clearInterval(timerId);
+  }
 });
 
 const elapsedTime = computed(() => Math.floor((currentTime.value - startTime.value) / 1000));

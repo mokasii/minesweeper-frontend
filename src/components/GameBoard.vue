@@ -17,7 +17,7 @@ interface TileEntry {
 let firstClick = ref(true);
 const startTime = ref();
 const currentTime = ref();
-let timerId: ReturnType<typeof setInterval> = null;
+let timerId: ReturnType<typeof setInterval> | undefined;
 
 //use gameStore to save time and difficulty
 const gameStore = useGameStore();
@@ -30,7 +30,7 @@ const width = ref();
 const height = ref();
 const minesCount = ref();
 
-const difficultyLevels = {
+const difficultyLevels: {[key: string]:{width: number; height: number; minesCount: number;}} = {
   easy: { width: 3, height: 3, minesCount: 1 },
   medium: { width: 16, height: 16, minesCount: 40 },
   hard: { width: 30, height: 16, minesCount: 99 }
