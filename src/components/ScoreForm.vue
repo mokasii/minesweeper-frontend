@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
 import api from '@/api/api';
 
 interface Score {
@@ -18,8 +18,8 @@ const props = defineProps({
 const nickname = ref('');
 const errorMessage = ref('');
 const scores = ref<Score[]>([]);
-const submitted = ref(false); // Add this line
-const nameError = ref(''); // Add this line
+const submitted = ref(false);
+const nameError = ref('');
 
 const fetchScores = async () => {
   try {
@@ -70,27 +70,6 @@ onMounted(fetchScores);
       <button type="submit">Submit Score</button>
     </form>
     <p v-if="errorMessage">{{ errorMessage }}</p>
-
-    <!-- Tabelle für die Highscores -->
-    <h2>Highscores</h2>
-    <table>
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Nickname</th>
-        <th>Time (Seconds)</th>
-        <th>Difficulty</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="(score, index) in scores" :key="score.id">
-        <td>{{ index + 1 }}</td>
-        <td>{{ score.nickname }}</td>
-        <td>{{ score.timeInSeconds }}</td>
-        <td>{{ score.difficulty }}</td>
-      </tr>
-      </tbody>
-    </table>
   </div>
 </template>
 
