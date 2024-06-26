@@ -22,7 +22,7 @@ let timerId = null;
 //use gameStore to save time and difficulty
 const gameStore = useGameStore();
 
-const emit = defineEmits(['gameStarted','Lost']);
+const emit = defineEmits(['gameStarted','Lost','gameWon']);
 
 
 //grid and mines depending on difficulty
@@ -156,6 +156,7 @@ function handleReveal(tile) {
   if (gameWon.value) {
     clearInterval(timerId); // Stop the timer
     gameStore.setElapsedTime(elapsedTime.value); //save time
+    emit('gameWon')
     alert('Congratulations, you won!');
   }
 }
@@ -194,6 +195,7 @@ function toggleFlag(tile) {
   if (gameWon.value) {
     clearInterval(timerId); // Stop the timer
     gameStore.setElapsedTime(elapsedTime.value); //save time
+    emit('gameWon')
     alert('Congratulations, you won!');
   }
 }

@@ -1,35 +1,43 @@
 <template>
   <div class="game-view">
-    <GameBoard @game-started="gameStarted = true" />
-    <ScoreForm :timeInSeconds="elapsedTime" :difficulty="selectedDifficulty" v-if="gameStarted" />
+    <GameBoard @game-started="gameStarted = true" @game-won="showScoreForm = true" />
+
+    <Popup :show="showScoreForm" @close="showScoreForm = false">
+      <ScoreForm :timeInSeconds="elapsedTime" :difficulty="selectedDifficulty" @score-submitted="showScoreForm = false" />
+    </Popup>
+
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import GameBoard from '@/components/GameBoard.vue';
 import ScoreForm from '@/components/ScoreForm.vue';
+import Popup from '@/components/Popup.vue';
 import {useGameStore} from '@/store/store';
 
-
-
 export default defineComponent({
-  components: { GameBoard, ScoreForm },
+  components: { GameBoard, ScoreForm, Popup },
   setup() {
     const gameStarted = ref(false);
+    const showScoreForm = ref(false);
     const gameStore = useGameStore();
+    const elapsedTime = ref(gameStore.elapsedTime);
+    const selectedDifficulty = ref(gameStore.selectedDifficulty);
 
-    const startGame = () => {
-      gameStarted.value = true;
-    };
+    watch(() => gameStore.elapsedTime, (newTime) => {
+      elapsedTime.value = newTime;
+    });
+
+    watch(() => gameStore.selectedDifficulty, (newDifficulty) => {
+      selectedDifficulty.value = newDifficulty;
+    });
 
     return {
-      gameStarted, startGame, elapsedTime: gameStore.elapsedTime, selectedDifficulty: gameStore.selectedDifficulty
+      gameStarted, showScoreForm, elapsedTime, selectedDifficulty
     }
-
   }
 });
-
 </script>
 
 <style scoped>
