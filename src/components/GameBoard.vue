@@ -10,7 +10,7 @@ interface TileEntry {
   containsBomb: boolean;
   revealed: boolean;
   flagged: boolean;
-  adjacentBombs: number | null | 0;
+  adjacentBombs: number | undefined;
 }
 
 //timer
