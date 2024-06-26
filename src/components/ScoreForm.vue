@@ -10,8 +10,8 @@ interface Score {
 }
 
 const props = defineProps({
-  timeInSeconds: Number,
-  difficulty: String
+  timeInSeconds: {type: Number, default: 0},
+  difficulty: {type: String, default: ''}
 });
 
 

@@ -7,10 +7,10 @@ export const useGameStore = defineStore({
     selectedDifficulty: 'easy',
   }),
   actions: {
-    setElapsedTime(time) {
+    setElapsedTime(time: number) {
       this.elapsedTime = time;
     },
-    setSelectedDifficulty(difficulty) {
+    setSelectedDifficulty(difficulty: string) {
       this.selectedDifficulty = difficulty;
     },
   },

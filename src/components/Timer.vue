@@ -3,7 +3,7 @@ import { ref, computed, onUnmounted, onBeforeMount } from 'vue'
 
 const startTime = ref(Date.now());
 const currentTime = ref(Date.now());
-let timerId = null;
+let timerId: ReturnType<typeof setInterval> | null = null;
 
 onBeforeMount(() => {
   timerId = setInterval(() => {

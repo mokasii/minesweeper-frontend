@@ -17,7 +17,7 @@ interface TileEntry {
 let firstClick = ref(true);
 const startTime = ref();
 const currentTime = ref();
-let timerId = null;
+let timerId: ReturnType<typeof setInterval> = null;
 
 //use gameStore to save time and difficulty
 const gameStore = useGameStore();
@@ -49,7 +49,7 @@ const gameWon = computed(() => {return tiles.value.every(tile => tile.revealed |
 
 const tiles = ref<TileEntry[]>([]);
 
-function handleDifficultySelected(level) {
+function handleDifficultySelected(level: string) {
   const difficulty = difficultyLevels[level];
 
   width.value = difficulty.width;
@@ -136,7 +136,7 @@ function startTimer() {
 
 const elapsedTime = computed(() => Math.floor((currentTime.value - startTime.value) / 1000));
 
-function handleReveal(tile) {
+function handleReveal(tile: TileEntry) {
   //first check for first click (to get timer running)
   if (firstClick.value) {
     startTimer();
@@ -161,7 +161,7 @@ function handleReveal(tile) {
   }
 }
 
-function revealTile(tile){
+function revealTile(tile: TileEntry){
   if (tile.revealed || tile.flagged) {
     return;
   }
@@ -186,7 +186,7 @@ function revealAll() {
   tiles.value.forEach(tile => tile.revealed = true);
 }
 
-function toggleFlag(tile) {
+function toggleFlag(tile: TileEntry) {
   if (!tile.revealed){                                          //if already revealed, clicking should not flag
     tile.flagged = !tile.flagged;                               //if flagged, unflag, if unflagged, flag
     tile.flagged ? mineDisplay.value-- : mineDisplay.value++;   //counting mines

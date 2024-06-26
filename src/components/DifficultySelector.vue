@@ -2,7 +2,7 @@
 
 const emit = defineEmits(['difficultySelected']);
 
-function emitDifficulty(level) {
+function emitDifficulty(level: string) {
   emit('difficultySelected', level);
 }
 </script>

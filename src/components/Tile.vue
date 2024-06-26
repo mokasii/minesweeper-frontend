@@ -15,7 +15,7 @@ function revealTile() {
   }
 }
 
-function toggleFlag(event) {
+function toggleFlag(event: MouseEvent) {
   event.preventDefault();  //disables context menu
   if (!props.revealed) {
     emit('flag');
