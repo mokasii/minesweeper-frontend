@@ -18,6 +18,8 @@ const props = defineProps({
 const nickname = ref('');
 const errorMessage = ref('');
 const scores = ref<Score[]>([]);
+const submitted = ref(false); // Add this line
+const nameError = ref(''); // Add this line
 
 const fetchScores = async () => {
   try {
@@ -30,6 +32,15 @@ const fetchScores = async () => {
 };
 
 const submitScore = async () => {
+  if (nickname.value === '') {
+    nameError.value = 'Please enter a name';
+    return;
+  }
+
+  if (submitted.value) {
+    return;
+  }
+
   try {
     await api.postScore({
       nickname: nickname.value,
@@ -37,6 +48,7 @@ const submitScore = async () => {
       difficulty: props.difficulty
     });
     nickname.value = '';
+    submitted.value = true; // Add this line
     await fetchScores();
     errorMessage.value = '';
   } catch (error) {
@@ -52,7 +64,7 @@ onMounted(fetchScores);
   <div>
     <h2>Submit Your Score:</h2>
     <form @submit.prevent="submitScore">
-      <input v-model="nickname" placeholder="Nickname" />
+      <input v-model="nickname" :placeholder="nameError || 'Nickname'" />
       <input type="number" :value="timeInSeconds" placeholder="Time in seconds" readonly />
       <input :value="difficulty" readonly />
       <button type="submit">Submit Score</button>
