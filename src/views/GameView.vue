@@ -1,18 +1,42 @@
 <template>
   <div class="game-view">
-    <h1>one day this will be minesweeper</h1>
-    <h2>choose difficulty</h2>
-    <difficulty-selector></difficulty-selector>
+    <GameBoard @game-started="gameStarted = true" />
+    <ScoreForm :timeInSeconds="elapsedTime" :difficulty="selectedDifficulty" v-if="gameStarted" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import DifficultySelector from '@/components/DifficultySelector.vue';
+import { defineComponent, ref } from 'vue'
+import GameBoard from '@/components/GameBoard.vue';
+import ScoreForm from '@/components/ScoreForm.vue';
+import {useGameStore} from '@/store/store';
+
+
 
 export default defineComponent({
-  components: {
-    DifficultySelector
+  components: { GameBoard, ScoreForm },
+  setup() {
+    const gameStarted = ref(false);
+    const gameStore = useGameStore();
+
+    const startGame = () => {
+      gameStarted.value = true;
+    };
+
+    return {
+      gameStarted, startGame, elapsedTime: gameStore.elapsedTime, selectedDifficulty: gameStore.selectedDifficulty
+    }
+
   }
 });
+
 </script>
+
+<style scoped>
+.game-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+</style>

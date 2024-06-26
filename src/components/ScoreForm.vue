@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, defineProps } from 'vue';
 import api from '@/api/api';
 
 interface Score {
@@ -9,9 +9,13 @@ interface Score {
   difficulty: string;
 }
 
+const props = defineProps({
+  timeInSeconds: Number,
+  difficulty: String
+});
+
+
 const nickname = ref('');
-const timeInSeconds = ref(0);
-const difficulty = ref('easy');
 const errorMessage = ref('');
 const scores = ref<Score[]>([]);
 
@@ -29,12 +33,10 @@ const submitScore = async () => {
   try {
     await api.postScore({
       nickname: nickname.value,
-      timeInSeconds: timeInSeconds.value,
-      difficulty: difficulty.value
+      timeInSeconds: props.timeInSeconds,
+      difficulty: props.difficulty
     });
     nickname.value = '';
-    timeInSeconds.value = 0;
-    difficulty.value = 'easy';
     await fetchScores();
     errorMessage.value = '';
   } catch (error) {
@@ -51,12 +53,8 @@ onMounted(fetchScores);
     <h2>Submit Your Score:</h2>
     <form @submit.prevent="submitScore">
       <input v-model="nickname" placeholder="Nickname" />
-      <input type="number" v-model="timeInSeconds" placeholder="Time in seconds" />
-      <select v-model="difficulty">
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
+      <input type="number" :value="timeInSeconds" placeholder="Time in seconds" readonly />
+      <input :value="difficulty" readonly />
       <button type="submit">Submit Score</button>
     </form>
     <p v-if="errorMessage">{{ errorMessage }}</p>
