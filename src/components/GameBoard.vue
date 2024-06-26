@@ -176,7 +176,7 @@ function revealTile(tile: TileEntry){
   }
 
   //reveal each neighbouring tile if no bombs nearby
-  if (tile.adjacentBombs === undefined) {
+  if (tile.adjacentBombs === null) {
     const neighbors = getNeighbors(tile.id);
     neighbors.forEach(n => revealTile(tiles.value[n]));
   }
