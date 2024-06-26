@@ -10,7 +10,7 @@ interface TileEntry {
   containsBomb: boolean;
   revealed: boolean;
   flagged: boolean;
-  adjacentBombs: number | undefined | null;
+  adjacentBombs: number | undefined;
 }
 
 //timer
@@ -104,7 +104,7 @@ function calculateAdjacentMines() {
       }
     });
 
-    mineCount === 0 ? tile.adjacentBombs = null : tile.adjacentBombs = mineCount;
+    mineCount === 0 ? tile.adjacentBombs = undefined : tile.adjacentBombs = mineCount;
   }
 }
 
