@@ -8,7 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Minesweeper logo" class="logo" src="@/assets/sweeperLogo.png" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="MINESWEEPER" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
