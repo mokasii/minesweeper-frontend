@@ -19,7 +19,6 @@ const fetchScores = async () => {
   try {
     const response = await api.getScores();
     scores.value = response.data;
-    filterScores();
   } catch (error) {
     console.error("Failed to fetch scores", error);
     errorMessage.value = "Failed to load highscores.";
@@ -31,20 +30,19 @@ const fetchScoresByTimespan = async () => {
   try {
     switch (selectedTimespan.value) {
       case 'day':
-        const responseDay = await api.getScoresLastDay(selectedDifficulty.value);
+        const responseDay = selectedDifficulty.value === 'all' ? await api.getScoresLastDayAll() : await api.getScoresLastDay(selectedDifficulty.value);
         scores.value = responseDay.data;
         break;
       case 'week':
-        const responseWeek = await api.getScoresLastWeek(selectedDifficulty.value);
+        const responseWeek = selectedDifficulty.value === 'all' ? await api.getScoresLastWeekAll() : await api.getScoresLastWeek(selectedDifficulty.value);
         scores.value = responseWeek.data;
         break;
       case 'month':
-        const responseMonth = await api.getScoresLastMonth(selectedDifficulty.value);
+        const responseMonth = selectedDifficulty.value === 'all' ? await api.getScoresLastMonthAll() : await api.getScoresLastMonth(selectedDifficulty.value);
         scores.value = responseMonth.data;
         break;
       default:
-        const responseAll = await api.getScores();
-        scores.value = responseAll.data;
+        await fetchScores();
         break;
     }
     filterScores();
@@ -61,13 +59,25 @@ const filterScores = () => {
   } else {
     filteredScores.value = scores.value.filter(score => score.difficulty === selectedDifficulty.value).slice(0, 10);
   }
+  console.log('Filtered scores:', filteredScores.value);
 };
 
-watch(selectedDifficulty, filterScores);
-watch(selectedTimespan, fetchScoresByTimespan);
+watch(selectedDifficulty, (newVal, oldVal) => {
+  if (newVal !== oldVal) {
+    console.log('Selected difficulty changed:', newVal);
+    filterScores();
+  }
+});
+
+watch(selectedTimespan, (newVal, oldVal) => {
+  if (newVal !== oldVal) {
+    console.log('Selected timespan changed:', newVal);
+    fetchScoresByTimespan();
+  }
+});
 
 onMounted(() => {
-  fetchScores();
+  fetchScoresByTimespan();
 });
 </script>
 
