@@ -33,5 +33,14 @@ export default {
   getScores() {                 // Ruft die Liste aller Scores vom Backend ab. Diese Methode gibt ein Array von ScoreResponse zurück,
     return apiClient.get<ScoreResponse[]>('/api/scores'); // basierend auf scoreResponse-Interface
 
+  },
+  getScoresLastDay(difficulty: string) {
+    return apiClient.get<ScoreResponse[]>(`/api/scores/day/${difficulty}`);
+  },
+  getScoresLastWeek(difficulty: string) {
+    return apiClient.get<ScoreResponse[]>(`/api/scores/week/${difficulty}`);
+  },
+  getScoresLastMonth(difficulty: string) {
+    return apiClient.get<ScoreResponse[]>(`/api/scores/month/${difficulty}`);
   }
 };
