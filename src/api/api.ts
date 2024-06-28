@@ -5,6 +5,7 @@ interface ScoreData {
   nickname: string;
   timeInSeconds: number;
   difficulty: string;
+  date: string;
 }
 
 interface ScoreResponse {
@@ -12,6 +13,7 @@ interface ScoreResponse {
   nickname: string;
   timeInSeconds: number;
   difficulty: string;
+  date: string;
 }
 
 const apiClient = axios.create({
