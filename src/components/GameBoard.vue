@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed, defineEmits } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import Tile from './Tile.vue';
 import DifficultySelector from './DifficultySelector.vue';
 import { useGameStore } from '@/store/store';
