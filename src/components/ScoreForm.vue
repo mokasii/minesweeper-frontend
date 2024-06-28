@@ -7,6 +7,7 @@ interface Score {
   nickname: string;
   timeInSeconds: number;
   difficulty: string;
+  date: string;
 }
 
 const props = defineProps({
@@ -45,7 +46,8 @@ const submitScore = async () => {
     await api.postScore({
       nickname: nickname.value,
       timeInSeconds: props.timeInSeconds,
-      difficulty: props.difficulty
+      difficulty: props.difficulty,
+      date: new Date().toISOString()
     });
     nickname.value = '';
     submitted.value = true; // Add this line
