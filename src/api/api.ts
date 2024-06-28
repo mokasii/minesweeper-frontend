@@ -42,5 +42,14 @@ export default {
   },
   getScoresLastMonth(difficulty: string) {
     return apiClient.get<ScoreResponse[]>(`/api/scores/month/${difficulty}`);
+  },
+  getScoresLastDayAll() {
+    return apiClient.get<ScoreResponse[]>('/api/scores/day');
+  },
+  getScoresLastWeekAll() {
+    return apiClient.get<ScoreResponse[]>('/api/scores/week');
+  },
+  getScoresLastMonthAll() {
+    return apiClient.get<ScoreResponse[]>('/api/scores/month');
   }
 };
