@@ -17,7 +17,9 @@
     "axios": "^1.7.2",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-audio": "^0.0.12",
+    "vue-router": "^4.3.0",
+    "vue-use-sound": "^1.1.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
