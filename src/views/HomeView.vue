@@ -39,37 +39,36 @@
 }
 
 .start-container {
-  width: 100%;
+  background-color: black;
+}
+
+.title-container {
   display: flex;
-  min-height: 100vh;
-  border-color: black;
-  border-width: 1px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
-  box-sizing: border-box;
 }
 
 .title-minesweeper {
   color: white;
-  font-size: 96px;
+  font-size: 100px;
   font-family: "PlatinumGames", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  line-height: 150px;
 }
 
 .bysidoma-text {
   color: white;
   font-family: "PlatinumGames";
-  margin-bottom: 40px;
 }
 
 .start-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .startGame-button, .highscores-button, .tutorial-button {
@@ -80,9 +79,15 @@
   background-color: black;
   padding: 10px 50px;
   margin: 10px 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 10px 10px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   font-size: 48px;
+  font-size: 40px;
 }
 
 .startGame-button:hover, .highscores-button:hover, .tutorial-button:hover {
@@ -90,7 +95,4 @@
   color: black;
 }
 
-.button-text {
-  font-size: 48px;
-}
 </style>
