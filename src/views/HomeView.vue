@@ -35,7 +35,7 @@
 <style scoped>
 @font-face {
   font-family: "PlatinumGames";
-  src: url("@/fonts/platinumGames.ttf");
+  src: url("@/assets/fonts/platinumGames.ttf");
 }
 
 .start-container {
