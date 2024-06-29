@@ -14,3 +14,9 @@ function emitDifficulty(level: string) {
     <button @click="emitDifficulty('hard')">Hard</button>
   </div>
 </template>
+
+<style scoped>
+button {
+  font-family: "PlatinumGames", sans-serif;
+}
+</style>

@@ -207,7 +207,7 @@ onMounted(initializeGame);
 <template>
   <div class="game">
     <DifficultySelector @difficultySelected="handleDifficultySelected" />
-    <button @click="initializeGame">Reset Game</button>
+    <button class="button" @click="initializeGame">Reset Game</button>
     <div class="mine-counter">Mines left: {{ mineDisplay }}</div>
     <div>Elapsed time: {{ elapsedTime }} seconds</div>
     <div class="game-board" :style="gameBoardStyle">
@@ -230,6 +230,10 @@ onMounted(initializeGame);
 }
 .mine-counter {
   margin-bottom: 10px;
+}
+
+button {
+  font-family: "PlatinumGames", sans-serif;
 }
 </style>>
 

@@ -83,8 +83,11 @@ onMounted(() => {
 
 <template>
   <div>
+    <h1>Highscores</h1>
+
+    <div class="filter-selectors">
     <!-- Dropdown for each difficulty level -->
-    <select v-model="selectedDifficulty">
+    <select class="diffic-selector" v-model="selectedDifficulty">
       <option value="all">All</option>
       <option value="easy">Easy</option>
       <option value="medium">Medium</option>
@@ -92,15 +95,15 @@ onMounted(() => {
     </select>
 
     <!-- Dropdown for each timespan -->
-    <select v-model="selectedTimespan">
+    <select class="timespan-selector" v-model="selectedTimespan">
       <option value="all">All</option>
       <option value="day">Last Day</option>
       <option value="week">Last Week</option>
       <option value="month">Last Month</option>
     </select>
+    </div>
 
     <!-- Tabelle für die Highscores -->
-    <h2>Highscores</h2>
     <table>
       <thead>
       <tr>
@@ -125,8 +128,9 @@ onMounted(() => {
 
 <style scoped>
 table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 th, td {
   border: 1px solid #ccc;
@@ -134,7 +138,30 @@ th, td {
   text-align: left;
 }
 thead {
-  background-color: #00BD7E;
-  color: black;
+  background-color: black;
+  color: white;
+}
+
+.router-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-selectors {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.diffic-selector, .timespan-selector {
+  font-family: "PlatinumGames";
+  font-size: 20px;
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
 }
 </style>

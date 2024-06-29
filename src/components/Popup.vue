@@ -15,7 +15,7 @@ const close = () => {
   <div class="popup" v-if="show">
     <div class="popup-content">
       <slot></slot>
-      <button @click="close">Close</button>
+      <button class=button-text @click="close">Close</button>
     </div>
   </div>
 </template>
@@ -38,5 +38,9 @@ const close = () => {
   background-color: grey;
   padding: 20px;
   border-radius: 10px;
+}
+
+.button-text {
+  font-family: "PlatinumGames", sans-serif;
 }
 </style>

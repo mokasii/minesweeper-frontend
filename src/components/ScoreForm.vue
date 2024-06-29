@@ -66,10 +66,10 @@ onMounted(fetchScores);
   <div>
     <h2>Submit Your Score:</h2>
     <form @submit.prevent="submitScore">
-      <input v-model="nickname" :placeholder="nameError || 'Nickname'" />
-      <input type="number" :value="timeInSeconds" placeholder="Time in seconds" readonly />
-      <input :value="difficulty" readonly />
-      <button type="submit">Submit Score</button>
+      <input class=button-text v-model="nickname" :placeholder="nameError || 'Nickname'" />
+      <input class=button-text type="number" :value="timeInSeconds" placeholder="Time in seconds" readonly />
+      <input class=button-text :value="difficulty" readonly />
+      <button class=button-text type="submit">Submit Score</button>
     </form>
     <p v-if="errorMessage">{{ errorMessage }}</p>
   </div>
@@ -88,5 +88,9 @@ th, td {
 thead {
   background-color: #00BD7E;
   color: black;
+}
+
+.button-text {
+  font-family: "PlatinumGames", sans-serif;
 }
 </style>
