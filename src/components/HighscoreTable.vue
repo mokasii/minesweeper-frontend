@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
 import api from '@/api/api';
+import tk3Sfx from '@/assets/sounds/tk3-buttonHover.mp3';
+
+const audio = new Audio(tk3Sfx);
+const playAudio = () => {audio.play();};
 
 interface Score {
   id: number;
@@ -87,7 +91,7 @@ onMounted(() => {
 
     <div class="filter-selectors">
     <!-- Dropdown for each difficulty level -->
-    <select class="diffic-selector" v-model="selectedDifficulty">
+    <select class="diffic-selector" v-model="selectedDifficulty" @click="playAudio">
       <option value="all">All</option>
       <option value="easy">Easy</option>
       <option value="medium">Medium</option>
@@ -95,7 +99,7 @@ onMounted(() => {
     </select>
 
     <!-- Dropdown for each timespan -->
-    <select class="timespan-selector" v-model="selectedTimespan">
+    <select class="timespan-selector" v-model="selectedTimespan" @click="playAudio">
       <option value="all">All</option>
       <option value="day">Last Day</option>
       <option value="week">Last Week</option>
