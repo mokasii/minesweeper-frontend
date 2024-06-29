@@ -1,32 +1,24 @@
 <script setup lang="ts">
+import hoverSfx from "@/assets/sounds/tk3-buttonHover.mp3";
+
+const audio = new Audio(hoverSfx);
+const playSound = () => {audio.play();};
+const stopSound = () => {audio.load();};
+
 </script>
 
 <template>
   <div class="start-container">
+  <div class="title-container">
     <h1 class="title-minesweeper">minesweeper</h1>
     <span class="bysidoma-text">by sidoma</span>
+  </div>
+
 
     <div class="start-buttons">
-      <RouterLink to="/game" class="startGame-button button">
-         <span>
-            <span class="button-text">start game</span>
-            <br></br>
-          </span>
-      </RouterLink>
-
-      <RouterLink to="/score" class="highscores-button button">
-          <span class="button-text">
-            <span>highscorers</span>
-            <br></br>
-          </span>
-      </RouterLink>
-
-      <RouterLink to="/tutorial" class="tutorial-button button">
-          <span class="button-text">
-            <span>tutorial</span>
-            <br></br>
-          </span>
-      </RouterLink>
+      <RouterLink to="/game" class="startGame-button button" @mouseover="playSound" @mouseleave="stopSound">start game</RouterLink>
+      <RouterLink to="/score" class="highscores-button button" @mouseover="playSound" @mouseleave="stopSound">highscorers</RouterLink>
+      <RouterLink to="/tutorial" class="tutorial-button button" @mouseover="playSound" @mouseleave="stopSound">tutorial</RouterLink>
     </div>
 
   </div>
@@ -77,8 +69,6 @@
   border: 2px solid white;
   border-radius: 24px;
   background-color: black;
-  padding: 10px 50px;
-  margin: 10px 0;
   padding-right: 10px;
   padding-left: 10px;
   padding-top: 0px;
@@ -86,8 +76,8 @@
   margin: 10px 10px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
-  font-size: 48px;
   font-size: 40px;
+  line-height: 80px;
 }
 
 .startGame-button:hover, .highscores-button:hover, .tutorial-button:hover {
