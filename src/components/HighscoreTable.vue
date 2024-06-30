@@ -87,6 +87,15 @@ onMounted(() => {
 
 <template>
   <div>
+    <div class="title-container">
+      <router-link to="/">
+        <div class="title-minesweeper">
+          <span v-for="(letter, index) in 'minesweeper'.split('')" :key="index">{{ letter }}</span>
+        </div>
+      </router-link>
+      <span class="bysidoma-text">by sidoma</span>
+    </div>
+
     <h1>Highscores</h1>
 
     <div class="filter-selectors">

@@ -16,7 +16,9 @@ const stopSelect = () => {selectAudio.load();}; //reloads audio
 <template>
   <div class="start-container">
   <div class="title-container">
-    <h1 class="title-minesweeper">minesweeper</h1>
+    <div class="title-minesweeper">
+      <span v-for="(letter, index) in 'minesweeper'.split('')" :key="index">{{ letter }}</span>
+    </div>
     <span class="bysidoma-text">by sidoma</span>
   </div>
 
@@ -37,28 +39,10 @@ const stopSelect = () => {selectAudio.load();}; //reloads audio
 }
 
 .start-container {
-  background-color: black;
-}
-
-.title-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.title-minesweeper {
-  color: white;
-  font-size: 100px;
-  font-family: "PlatinumGames", sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 150px;
-}
-
-.bysidoma-text {
-  color: white;
-  font-family: "PlatinumGames";
+  padding: 20px;
 }
 
 .start-buttons {

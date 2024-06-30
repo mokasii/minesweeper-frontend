@@ -2,7 +2,11 @@
 
   <div class="game-view">
     <div class="title-container">
-      <div class="title-minesweeper">minesweeper</div>
+      <router-link to="/">
+        <div class="title-minesweeper">
+          <span v-for="(letter, index) in 'minesweeper'.split('')" :key="index">{{ letter }}</span>
+        </div>
+      </router-link>
       <span class="bysidoma-text">by sidoma</span>
     </div>
     <GameBoard v-if="selectedDifficulty" @game-started="gameStarted = true" @game-won="showScoreForm = true" />
@@ -51,27 +55,5 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
-
-.title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.title-minesweeper {
-  color: white;
-  font-size: 100px;
-  font-family: "PlatinumGames", sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 90px;
-}
-
-.bysidoma-text {
-  color: white;
-  font-family: "PlatinumGames";
-  margin-bottom: 20px;
 }
 </style>
