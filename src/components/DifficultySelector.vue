@@ -8,7 +8,7 @@ function emitDifficulty(level: string) {
 </script>
 
 <template>
-  <div>
+  <div class="diffic-buttons">
     <button @click="emitDifficulty('easy')">Easy</button>
     <button @click="emitDifficulty('medium')">Medium</button>
     <button @click="emitDifficulty('hard')">Hard</button>
@@ -16,7 +16,5 @@ function emitDifficulty(level: string) {
 </template>
 
 <style scoped>
-button {
-  font-family: "PlatinumGames", sans-serif;
-}
+
 </style>
