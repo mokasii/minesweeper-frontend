@@ -1,45 +1,43 @@
-# webtech
+# Minesweeper
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is an implementation of the classic Minesweeper game using Vue.js and TypeScript.
 
-## Recommended IDE Setup
+## Project Structure
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- `src/views`: Contains the main views of the application (HomeView, GameView).
+- `src/components`: Contains reusable Vue components.
+- `src/assets`: Contains static files such as images and sounds.
+- `src/api`: Contains the API integration.
+- `src/store`: Contains the application state.
 
-## Type Support for `.vue` Imports in TS
+## Installation
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+To install the project, execute the following commands:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Development
+
+To run the project in development mode, use:
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## Production
+
+To compile and minimize the project for production, use:
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Tests
+
+To run the tests, use:
 
 ```sh
 npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
