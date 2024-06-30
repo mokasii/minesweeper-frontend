@@ -31,7 +31,7 @@ const height = ref();
 const minesCount = ref();
 
 const difficultyLevels: {[key: string]:{width: number; height: number; minesCount: number;}} = {
-  easy: { width: 9, height: 9, minesCount: 10 },
+  easy: { width: 3, height: 3, minesCount: 0 },
   medium: { width: 16, height: 16, minesCount: 40 },
   hard: { width: 30, height: 16, minesCount: 99 }
 };
@@ -214,13 +214,15 @@ onMounted(initializeGame);
       <div>Elapsed time: {{ elapsedTime }} seconds</div>
     </div>
     <div class="game-board" :style="gameBoardStyle">
+      <transition-group name="tile-transition">
       <Tile v-for="tile in tiles" :key="tile.id"
-            :containsBomb="tile.containsBomb"
-            :revealed="tile.revealed"
-            :flagged="tile.flagged"
-            :adjacentBombs="tile.adjacentBombs"
-            @reveal="handleReveal(tile)"
-            @flag="toggleFlag(tile)" />
+              :containsBomb="tile.containsBomb"
+              :revealed="tile.revealed"
+              :flagged="tile.flagged"
+              :adjacentBombs="tile.adjacentBombs"
+              @reveal="handleReveal(tile)"
+              @flag="toggleFlag(tile)" />
+      </transition-group>
     </div>
   </div>
 </template>
@@ -257,6 +259,19 @@ onMounted(initializeGame);
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.tile-transition-enter-from {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.tile-transition-enter-active {
+  transition: all 0.4s ease;
+}
+.tile-transition-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
 
 </style>>
 
