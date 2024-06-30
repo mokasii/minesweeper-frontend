@@ -58,6 +58,7 @@ function handleDifficultySelected(level: string) {
 
   gameStore.setSelectedDifficulty(level);
 
+
   initializeGame();
 }
 
@@ -206,10 +207,12 @@ onMounted(initializeGame);
 
 <template>
   <div class="game">
-    <DifficultySelector @difficultySelected="handleDifficultySelected" />
-    <button class="button" @click="initializeGame">Reset Game</button>
-    <div class="mine-counter">Mines left: {{ mineDisplay }}</div>
-    <div>Elapsed time: {{ elapsedTime }} seconds</div>
+    <div class="game-header">
+      <DifficultySelector @difficultySelected="handleDifficultySelected" />
+      <button class="reset-button" @click="initializeGame">Reset Game</button>
+      <div class="mine-counter">Mines left: {{ mineDisplay }}</div>
+      <div>Elapsed time: {{ elapsedTime }} seconds</div>
+    </div>
     <div class="game-board" :style="gameBoardStyle">
       <Tile v-for="tile in tiles" :key="tile.id"
             :containsBomb="tile.containsBomb"
@@ -223,17 +226,36 @@ onMounted(initializeGame);
 </template>
 
 <style scoped>
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 2px solid white; /* Change the color as needed */
+  border-radius: 10px; /* Adjust the radius as needed */
+  padding: 10px; /* Adjust the padding as needed */
+}
+
+.diffic-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+}
+
+.reset-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(9, 30px);
   gap: 2px;
 }
 .mine-counter {
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
-button {
-  font-family: "PlatinumGames", sans-serif;
-}
 </style>>
 
