@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Tile from '@/components/Tile.vue'
-import {describe, it, expect, vi} from 'vitest';
+import {describe, it, expect } from 'vitest';
 
 
 describe('Tile.vue', () => {
@@ -53,5 +53,4 @@ describe('Tile.vue', () => {
     await wrapper.trigger('click')
     expect(wrapper.emitted()).toHaveProperty('reveal')
   })
-
 })

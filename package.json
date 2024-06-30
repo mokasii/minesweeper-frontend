@@ -41,5 +41,11 @@
     "vite": "^5.2.8",
     "vitest": "^1.4.0",
     "vue-tsc": "^2.0.11"
+  },
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   }
 }

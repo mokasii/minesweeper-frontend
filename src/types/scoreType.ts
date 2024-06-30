@@ -1,0 +1,1 @@
+export type Score = { id?: number, nickname: string, timeInSeconds: number, difficulty: string, createdAt: string }
