@@ -31,7 +31,7 @@ const height = ref();
 const minesCount = ref();
 
 const difficultyLevels: {[key: string]:{width: number; height: number; minesCount: number;}} = {
-  easy: { width: 3, height: 3, minesCount: 1 },
+  easy: { width: 9, height: 9, minesCount: 10 },
   medium: { width: 16, height: 16, minesCount: 40 },
   hard: { width: 30, height: 16, minesCount: 99 }
 };
@@ -230,10 +230,11 @@ onMounted(initializeGame);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
   margin-bottom: 10px;
-  border: 2px solid white; /* Change the color as needed */
-  border-radius: 10px; /* Adjust the radius as needed */
-  padding: 10px; /* Adjust the padding as needed */
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .diffic-buttons {
