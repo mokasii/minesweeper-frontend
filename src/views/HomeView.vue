@@ -71,7 +71,7 @@ const stopSelect = () => {selectAudio.load();}; //reloads audio
 
 .startGame-button, .highscores-button, .tutorial-button {
   color: white;
-  font-family: "PlatinumGames";
+  font-family: "PlatinumGames", sans-serif;
   border: 2px solid white;
   border-radius: 24px;
   background-color: black;
