@@ -11,9 +11,11 @@
     </div>
     <GameBoard v-if="selectedDifficulty" @game-started="gameStarted = true" @game-won="showScoreForm = true" />
 
+    <transition name="submit-form">
     <Popup :show="showScoreForm" @close="showScoreForm = false">
       <ScoreForm :timeInSeconds="elapsedTime" :difficulty="selectedDifficulty" @score-submitted="showScoreForm = false" />
     </Popup>
+    </transition>
 
   </div>
 </template>
@@ -55,5 +57,30 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   padding: 20px;
+}
+
+/* enter transitions */
+.submit-form-enter-from {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+/* .submit-form-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+} */
+.submit-form-enter-active {
+  transition: all 0.3s ease;
+}
+/* leave transitions */
+/* .submit-form-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+} */
+.submit-form-leave-to {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+.submit-form-leave-active {
+  transition: all 0.3s ease;
 }
 </style>
