@@ -31,7 +31,7 @@ const height = ref();
 const minesCount = ref();
 
 const difficultyLevels: {[key: string]:{width: number; height: number; minesCount: number;}} = {
-  easy: { width: 3, height: 3, minesCount: 0 },
+  easy: { width: 9, height: 9, minesCount: 10 },
   medium: { width: 16, height: 16, minesCount: 40 },
   hard: { width: 30, height: 16, minesCount: 99 }
 };
