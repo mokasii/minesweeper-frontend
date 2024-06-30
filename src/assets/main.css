@@ -33,10 +33,32 @@ button:hover {
   color: black;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-minesweeper {
+  color: white;
+  font-size: 100px;
+  font-family: "PlatinumGames", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 90px;
+}
+
+.title-minesweeper span:hover {
+  color: black;
+  background-color: white;
+  transform: scale(1.2);
+}
+
+.bysidoma-text {
+  color: white;
+  font-family: "PlatinumGames", sans-serif;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1024px) {
