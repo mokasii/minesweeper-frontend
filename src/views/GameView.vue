@@ -1,6 +1,6 @@
 <template>
   <div class="game-view">
-    <GameBoard @game-started="gameStarted = true" @game-won="showScoreForm = true" />
+    <GameBoard v-if="selectedDifficulty" @game-started="gameStarted = true" @game-won="showScoreForm = true" />
 
     <Popup :show="showScoreForm" @close="showScoreForm = false">
       <ScoreForm :timeInSeconds="elapsedTime" :difficulty="selectedDifficulty" @score-submitted="showScoreForm = false" />
