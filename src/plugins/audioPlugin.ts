@@ -31,22 +31,26 @@ const stopSound4 = () => { sound4Audio.load(); }; // reloads audio
 const playSound5 = () => { sound5Audio.play(); };
 const stopSound5 = () => { sound5Audio.load(); }; // reloads audio
 
+export const sounds = {
+  playHover,
+  stopHover,
+  playSelect,
+  stopSelect,
+  playSound2,
+  stopSound2,
+  playSound3,
+  stopSound3,
+  playSound4,
+  stopSound4,
+  playSound5,
+  stopSound5,
+};
+
+export type Sounds = typeof sounds;
+
 const soundPlugin = {
   install(app: App) {
-    app.config.globalProperties.$sounds = {
-      playHover,
-      stopHover,
-      playSelect,
-      stopSelect,
-      playSound2,
-      stopSound2,
-      playSound3,
-      stopSound3,
-      playSound4,
-      stopSound4,
-      playSound5,
-      stopSound5,
-    };
+    app.config.globalProperties.$sounds = sounds;
   }
 };
 
