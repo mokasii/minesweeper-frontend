@@ -38,6 +38,9 @@ const close = () => {
   background-color: grey;
   padding: 20px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button-text {

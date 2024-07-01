@@ -63,9 +63,9 @@ onMounted(fetchScores);
 </script>
 
 <template>
-  <div>
+  <div class="form-container">
     <h2>Submit Your Score:</h2>
-    <form @submit.prevent="submitScore">
+    <form @submit.prevent="submitScore" class="score-form">
       <input class=button-text v-model="nickname" :placeholder="nameError || 'Nickname'" />
       <input class=button-text type="number" :value="timeInSeconds" placeholder="Time in seconds" readonly />
       <input class=button-text :value="difficulty" readonly />
@@ -76,18 +76,44 @@ onMounted(fetchScores);
 </template>
 
 <style scoped>
-table {
-  width: 100%;
-  border-collapse: collapse;
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
 }
-th, td {
+
+.score-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
+  border-radius: 5px;
 }
-thead {
-  background-color: #00BD7E;
-  color: black;
+
+.score-form input:focus {
+  border-color: black;
+  outline: none;
+}
+
+.score-form button {
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.score-form button:hover {
+  background-color: white;
+  color:black;
 }
 
 .button-text {
