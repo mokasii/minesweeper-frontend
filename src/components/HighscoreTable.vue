@@ -96,7 +96,7 @@ onMounted(() => {
 
     <div class="filter-selectors">
     <!-- Dropdown for each difficulty level -->
-    <select class="diffic-selector" v-model="selectedDifficulty" @click="$sounds.playHover()">
+    <select class="diffic-selector" v-model="selectedDifficulty" @click="$sounds.playSound3()">
       <option value="all">All</option>
       <option value="easy">Easy</option>
       <option value="medium">Medium</option>
@@ -104,7 +104,7 @@ onMounted(() => {
     </select>
 
     <!-- Dropdown for each timespan -->
-    <select class="timespan-selector" v-model="selectedTimespan" @click="$sounds.playHover()">
+    <select class="timespan-selector" v-model="selectedTimespan" @click="$sounds.playSound3()">
       <option value="all">All</option>
       <option value="day">Last Day</option>
       <option value="week">Last Week</option>
