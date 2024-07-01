@@ -142,17 +142,24 @@ onMounted(() => {
 <style scoped>
 table {
   width: 70%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
+
 th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
+  padding: 12px 15px;
   text-align: left;
+  border-bottom: 1px solid white;
 }
 thead {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 tbody tr {
@@ -162,6 +169,16 @@ tbody tr {
 tbody tr:hover {
   background-color: grey;
   color: white;
+}
+
+th:first-child, td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+th:last-child, td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .router-view {
