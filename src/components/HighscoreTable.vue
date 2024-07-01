@@ -84,7 +84,7 @@ onMounted(() => {
 <template>
   <div>
     <div class="title-container">
-      <router-link to="/">
+      <router-link to="/" @click="$sounds.playSound4()">
         <div class="title-minesweeper">
           <span v-for="(letter, index) in 'minesweeper'.split('')" :key="index">{{ letter }}</span>
         </div>
