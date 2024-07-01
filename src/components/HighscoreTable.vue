@@ -155,6 +155,15 @@ thead {
   color: white;
 }
 
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: grey;
+  color: white;
+}
+
 .router-view {
   display: flex;
   flex-direction: column;
@@ -168,7 +177,7 @@ thead {
 }
 
 .diffic-selector, .timespan-selector {
-  font-family: "PlatinumGames";
+  font-family: "PlatinumGames", sans-serif;
   font-size: 20px;
   margin: 0 10px;
   padding: 5px;
