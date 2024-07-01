@@ -209,7 +209,9 @@ onMounted(initializeGame);
   <div class="game">
     <div class="game-header">
       <DifficultySelector @difficultySelected="handleDifficultySelected" />
-      <button class="reset-button" @click="initializeGame">Reset Game</button>
+      <div class="reset" @click="$sounds.playSound4()">
+        <button class="reset-button" @click="initializeGame">Reset Game</button>
+      </div>
       <div class="mine-counter">Mines left: {{ mineDisplay }}</div>
       <div>Elapsed time: {{ elapsedTime }} seconds</div>
     </div>
