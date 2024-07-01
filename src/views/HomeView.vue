@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import hoverSfx from "@/assets/sounds/tk3-buttonHover.mp3";
-import selectSfx from "@/assets/sounds/buttonSelect.mp3";
-
-const hoverAudio = new Audio(hoverSfx);
-const selectAudio = new Audio(selectSfx);
-
-const playHover = () => {hoverAudio.play();};
-const stopHover = () => {hoverAudio.load();}; //reloads audio
-
-const playSelect = () => {selectAudio.play();};
-const stopSelect = () => {selectAudio.load();}; //reloads audio
-
-</script>
-
 <template>
   <div class="start-container">
   <div class="title-container">
@@ -24,8 +9,8 @@ const stopSelect = () => {selectAudio.load();}; //reloads audio
 
 
     <div class="start-buttons">
-      <RouterLink to="/game" class="startGame-button button" @mouseover="playHover" @mouseleave="stopHover" @click="playSelect">start game</RouterLink> <!--@mouseenter works to but this way feel like more responsive-->
-      <RouterLink to="/score" class="highscores-button button" @mouseover="playHover" @mouseleave="stopHover" @click="playSelect">highscorers</RouterLink>
+      <RouterLink to="/game" class="startGame-button button" @mouseover="$sounds.playSound2()" @mouseleave="$sounds.stopSound2()" @click="$sounds.playSound5()">start game</RouterLink> <!--@mouseenter works to but this way feel like more responsive-->
+      <RouterLink to="/score" class="highscores-button button" @mouseover="$sounds.playSound2()" @mouseleave="$sounds.stopSound2()" @click="$sounds.playSound5()">highscorers</RouterLink>
 <!--      <RouterLink to="/tutorial" class="tutorial-button button" @mouseover="playHover" @mouseleave="stopHover">tutorial</RouterLink>-->
     </div>
 
