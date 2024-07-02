@@ -21,7 +21,6 @@ const errorMessage = ref('');
 const scores = ref<Score[]>([]);
 const submitted = ref(false);
 const nameError = ref('');
-const submitted = ref(false);
 
 const fetchScores = async () => {
   try {
