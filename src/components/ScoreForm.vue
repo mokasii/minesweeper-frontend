@@ -50,7 +50,7 @@ const submitScore = async () => {
       date: new Date().toISOString()
     });
     nickname.value = '';
-    submitted.value = true; // Add this line
+    submitted.value = true;
     await fetchScores();
     errorMessage.value = '';
   } catch (error) {
