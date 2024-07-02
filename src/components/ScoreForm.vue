@@ -21,6 +21,7 @@ const errorMessage = ref('');
 const scores = ref<Score[]>([]);
 const submitted = ref(false);
 const nameError = ref('');
+const submitted = ref(false);
 
 const fetchScores = async () => {
   try {
@@ -66,10 +67,12 @@ onMounted(fetchScores);
   <div class="form-container">
     <h2>Submit Your Score:</h2>
     <form @submit.prevent="submitScore" class="score-form">
-      <input class=button-text v-model="nickname" :placeholder="nameError || 'Nickname'" />
+      <input class=button-text v-model="nickname" :placeholder="nameError || 'Nickname'" :disabled="submitted" />
       <input class=button-text type="number" :value="timeInSeconds" placeholder="Time in seconds" readonly />
       <input class=button-text :value="difficulty" readonly />
-      <button class=button-text type="submit">Submit Score</button>
+      <button class="button-text" type="submit" :disabled="submitted">
+        {{ submitted ? 'Score Submitted' : 'Submit Score' }}
+      </button>
     </form>
     <p v-if="errorMessage">{{ errorMessage }}</p>
   </div>
